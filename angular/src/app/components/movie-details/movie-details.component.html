@@ -1,0 +1,13 @@
+<div id="detailsContainer">
+  <img id='close' src="https://img.icons8.com/cute-clipart/64/000000/close-window.png" (click)="closeMe()"/>
+<table>
+<tr>
+  <td rowspan="6"><img src="{{movie?.Poster}}"></td> <td id="movieTitle">{{movie?.Title}}</td>
+</tr>
+  <tr><td>{{movie?.Plot}}</td></tr>
+  <tr><td><span class="info"> Gatunek: </span> {{movie?.Genre}}</td></tr>
+  <tr><td><span class="info"> Reżyser: </span>   {{movie?.Director}}</td></tr>
+  <tr><td><span class="info"> Występują </span>  : {{movie?.Actors}}</td></tr>
+  <tr><td> <span class="info"> Ocena IMDB </span> : {{movie?.imdbRating}}</td></tr>
+</table>
+</div>

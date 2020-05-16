@@ -1,6 +1,36 @@
 <div class="container">
+  <!--<ng-template [ngIf]="token!== null">-->
+    <div class="header">
+      <div id="headerContent">
+        <img id="logo" src="../assets/images/logo.png">
+      </div>
 
-main page
+    </div>
+  <!--</ng-template>-->
+
+
+  <!--<div class="content">-->
+    <!--<ng-template [ngIf]="token === null">-->
+      <!--<div id="userMenu">-->
+        <!--&lt;!&ndash;// [ngIf]="token === null">&ndash;&gt;-->
+        <!--<input [(ngModel)]="login.username" placeholder="Username" type="text"><br>-->
+        <!--<input [(ngModel)]="login.password" placeholder="Password" type="password"><br>-->
+        <!--<button (click)="onLogin()">Login</button>-->
+      <!--</div>-->
+    <!--</ng-template>-->
+  <!--</div>-->
+  <!--<ng-template [ngIf]="token === null">-->
+    <!--<p [routerLink]="['signup']" class="registerText">Don't have account yet? Sign UP HERE</p>-->
+  <!--</ng-template>-->
+
+  <!--<ng-template [ngIf]="token !== null">-->
+    <div id="sideMenu">
+      <ul>
+        <li><a [routerLink]="['/movies']"><span>Filmy</span></a></li>
+        <li><a [routerLink]="['/movieDetails']"><span>Details</span></a></li>
+        <li><a [routerLink]="['/movies']"><span>Filmysa</span></a></li>
+      </ul>
+    </div>
 
   <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,38 @@
+*
+{
+  font-family: 'Verdana', Courier, monospace;
+  font-size: 1.1rem;
+}
+#detailsContainer
+{
+  border:2px solid black;
+  position: absolute;
+  top:5%;
+  left:5%;
+  width: 90%;
+  height: 90%;
+  background: white;
+  z-index: 2000;
+}
+#close
+{
+  position: absolute;
+  top:5px;
+  right: 5px;
+}
+table
+{
+  height: 90%;
+  top:5%;
+  position: absolute;
+  width: 60%;
+}
+.info
+{
+  font-weight: bold;
+}
+#movieTitle
+{
+  font-weight: bold;
+  font-size: 22px;
+}

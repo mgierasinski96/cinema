@@ -1,0 +1,96 @@
+$cherry: #950740;
+$darkgray: #4E4E50;;
+$lightgray: #c1bdb9;
+$black: #1A1A1D;
+$coral: coral;
+$white: white;
+$pinkone: #ffaabb;
+
+#filtrInput ::ng-deep .mat-form-field-underline .mat-form-field-ripple, #filtrInput ::ng-deep .mat-form-field-underline, #rankingTableHolder::-webkit-scrollbar{
+
+  background:$white;
+
+}
+
+.imageInTableCell
+{
+  width: 140px;
+  height: 240px;
+}
+#filtrInput
+{
+  background: $cherry;
+  color: $white;
+  z-index: 200;
+  left:25%;
+  padding: 5px;
+  top:14%;
+  position: absolute;
+  width: 200px;
+  border: 2px solid black;
+}
+#rankingTableHolder {
+  position: absolute;
+  left: 5%;
+  top:37%;
+  width: 60%;
+  height: 60%;
+  overflow-y: scroll;
+
+}
+
+ #rankingTable {
+  background: $black;
+  box-shadow: none;
+}
+
+#rankingTableBackground {
+  position: absolute;
+  width: 100%;
+  height: 101%;
+  background: $black;
+}
+::ng-deep .mat-row
+{
+  text-align: left;
+}
+.mat-row td,#guildContentInfo,#userStatistics tr:nth-child(3n),#guildData tr:nth-child(3n),#guildMembers tr:nth-child(3n+1)
+{
+  color: $coral;
+}
+.mat-row:hover{
+  font-weight: bold;
+  cursor: pointer;
+}
+::ng-deep th.mat-header-cell
+{
+  background: $black !important;
+  color: $white !important;
+  font-size: 1rem !important;
+  min-width: 100%;
+  border-bottom: 2px solid $white;
+  z-index: 300;
+  width: 200px;
+
+}
+
+#rankingTableHolder::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+
+#rankingTableHolder::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: $cherry;
+}
+input ::ng-deep, #textAreaContent ::ng-deep{
+  font-size: 30px;
+  background: $cherry;
+  padding: 1%;
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+::ng-deep .mat-sort-header-sorted {
+  color: $cherry;
+
+}

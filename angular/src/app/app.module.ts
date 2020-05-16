@@ -15,11 +15,18 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
+import {MovieService} from './services/movie.service';
+import {SearchMoviesComponent} from './views/searchMovies/searchMovies.component';
+import {MyTableComponent} from './components/my-table/my-table.component';
+import {MovieDetailsComponent} from './components/movie-details/movie-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    SearchMoviesComponent,
+    MyTableComponent,
+    MovieDetailsComponent
   ],
   entryComponents: [],
   imports: [
@@ -39,7 +46,7 @@ import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
     MatDialogModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent] // deklaracja glownego widoku
 })
 export class AppModule {

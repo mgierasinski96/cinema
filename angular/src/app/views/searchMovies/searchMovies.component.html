@@ -1,0 +1,15 @@
+<div id="container">
+<div>
+  <input type="text" id="any" (input)="onSearchChange($event.target.value)">
+</div>
+  <div id="myMovie">
+    <div>
+    <h2 style="color: white"> Wynikow {{tableData?.length}}</h2>
+    </div>
+    <!--<img *ngFor="let movie of movies" src="{{movie.Poster}}">-->
+
+    <app-my-table (click)="performAction($event.target)" [tableData]="tableData" #myChild [columnHeader]="columnHeader"></app-my-table>
+    <app-movie-details-component [movieTitle]="movieTitle" id="detailsContainer" #myMoveDetails></app-movie-details-component>
+  <router-outlet></router-outlet>
+</div>
+</div>
