@@ -1,18 +1,16 @@
 package com.cinema.demo.Controller;
 
-import com.cinema.demo.Model.Example;
-import com.cinema.demo.Model.Movie;
-import com.cinema.demo.Model.Search;
+import com.cinema.demo.DTO.NewMovieDTO;
+import com.cinema.demo.Model.*;
+import com.cinema.demo.Services.MovieInRoomService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -22,6 +20,9 @@ import java.util.List;
 public class MovieController {
 
     private final String MY_API_KEY = "13dba106";
+
+    @Autowired
+    MovieInRoomService movieInRoomService;
 
     // ex http://www.omdbapi.com/?apikey=13dba106&t=Avengers
     @GetMapping("/{title}")
@@ -49,4 +50,12 @@ public class MovieController {
 
         return responseEntity.getBody();
     }
+
+    @GetMapping(value = "/playedMovies")
+    public List<MovieInRoom> getAll()
+    {
+        return movieInRoomService.findAll();
+    }
+
+
 }

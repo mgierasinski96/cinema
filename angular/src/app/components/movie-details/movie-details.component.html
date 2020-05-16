@@ -1,5 +1,6 @@
 <div id="detailsContainer">
   <img id='close' src="https://img.icons8.com/cute-clipart/64/000000/close-window.png" (click)="closeMe()"/>
+  <ng-content select="[sample]"></ng-content>
 <table>
 <tr>
   <td rowspan="6"><img src="{{movie?.Poster}}"></td> <td id="movieTitle">{{movie?.Title}}</td>

@@ -2,3 +2,23 @@ $white: #fff;
 $black: #000000;
 $darken: #00043c;
 $primary: #fdbe34;
+
+.myButton {
+  padding: 20px;
+  width: 180px;
+  height: 60px;
+  border-radius: 15px;
+  background: #fdbe34;
+  color: white;
+}
+.myButton:hover {
+  background: $darken;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.myButton.disabled, .myButton:disabled
+{
+  background: none;
+  color: grey;
+}

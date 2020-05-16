@@ -14,11 +14,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
-import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
 import {MovieService} from './services/movie.service';
 import {SearchMoviesComponent} from './views/searchMovies/searchMovies.component';
 import {MyTableComponent} from './components/my-table/my-table.component';
 import {MovieDetailsComponent} from './components/movie-details/movie-details.component';
+import {RoomService} from './services/room.service';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 
 @NgModule({
@@ -44,9 +45,11 @@ import {MovieDetailsComponent} from './components/movie-details/movie-details.co
     MatCheckboxModule,
     MatSortModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
-  providers: [MovieService],
+  providers: [MovieService, RoomService],
   bootstrap: [AppComponent] // deklaracja glownego widoku
 })
 export class AppModule {

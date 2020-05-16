@@ -1,10 +1,4 @@
-$cherry: #950740;
-$darkgray: #4E4E50;;
-$lightgray: #c1bdb9;
-$black: #1A1A1D;
-$coral: coral;
-$white: white;
-$pinkone: #ffaabb;
+@import '../../../globalScssVariables';
 
 #filtrInput ::ng-deep .mat-form-field-underline .mat-form-field-ripple, #filtrInput ::ng-deep .mat-form-field-underline, #rankingTableHolder::-webkit-scrollbar{
 
@@ -19,8 +13,8 @@ $pinkone: #ffaabb;
 }
 #filtrInput
 {
-  background: $cherry;
-  color: $white;
+  background: $darken;
+  color: $primary;
   z-index: 200;
   left:25%;
   padding: 5px;
@@ -40,7 +34,7 @@ $pinkone: #ffaabb;
 }
 
  #rankingTable {
-  background: $black;
+  background: $darken;
   box-shadow: none;
 }
 
@@ -56,7 +50,7 @@ $pinkone: #ffaabb;
 }
 .mat-row td,#guildContentInfo,#userStatistics tr:nth-child(3n),#guildData tr:nth-child(3n),#guildMembers tr:nth-child(3n+1)
 {
-  color: $coral;
+  color: $primary;
 }
 .mat-row:hover{
   font-weight: bold;
@@ -64,7 +58,7 @@ $pinkone: #ffaabb;
 }
 ::ng-deep th.mat-header-cell
 {
-  background: $black !important;
+  background: $darken !important;
   color: $white !important;
   font-size: 1rem !important;
   min-width: 100%;
@@ -80,17 +74,17 @@ $pinkone: #ffaabb;
 
 #rankingTableHolder::-webkit-scrollbar-thumb {
   border-radius: 12px;
-  background: $cherry;
+  background: $darken;
 }
 input ::ng-deep, #textAreaContent ::ng-deep{
   font-size: 30px;
-  background: $cherry;
+  background: $darken;
   padding: 1%;
 }
 th.mat-sort-header-sorted {
-  color: black;
+  color: $primary;
 }
 ::ng-deep .mat-sort-header-sorted {
-  color: $cherry;
+  color:   $primary;
 
 }
