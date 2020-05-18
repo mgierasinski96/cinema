@@ -1,0 +1,21 @@
+<div id="container">
+
+    <app-my-table  (click)="performAction($event.target)" [tableData]="tableData" #myChild [parseDate]="true"
+                  [columnHeader]="columnHeader"></app-my-table>
+  <app-movie-details-component [movieTitle]="movieTitle" id="detailsContainer" #myMoveDetails>
+    <div sample id="reserveTicket"><h2>Zarezerwuj bilet</h2>
+      <div id="cinemaRoom">
+
+      <span class="seat" (click)="reserveSeat(seat,$event.target)" [ngClass]="seat.user == null ? 'free': 'reserved'" *ngFor="let seat of seats">
+        {{ seat.seatNumber }}
+      </span>
+        <div style="margin-top: 30px;">
+        <div id="screen">SCREEN</div>
+        </div>
+      </div>
+      <button (click)="contiunueReservation()" id='myReservationButton' class="myButton"> Potwierdź rezerwację
+      </button>
+    </div>
+  </app-movie-details-component>
+  </div>
+

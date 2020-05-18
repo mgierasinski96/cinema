@@ -10,6 +10,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class MyTableComponent implements OnInit {
   @Input() tableData;
   @Input() columnHeader;
+  @Input() parseDate;
   objectKeys = Object.keys;
   dataSource;
   @ViewChild(MatSort) sort: MatSort;
@@ -17,17 +18,23 @@ export class MyTableComponent implements OnInit {
   constructor() {
   }
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.tableData);
-    this.dataSource.sort = this.sort;
+      this.dataSource = new MatTableDataSource(this.tableData);
+      this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
   init(data) {
     this.tableData = data;
     this.ngOnInit();
   }
 
+  isDate(val) {
+    if (this.parseDate === true && /^[0-9]{4}-/.test(val)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

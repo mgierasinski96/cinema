@@ -5,4 +5,5 @@ import com.cinema.demo.Model.Seat;
 public interface SeatService {
 
     Seat safeSeat(Seat seat);
+    Seat findSeatById(int id);
 }

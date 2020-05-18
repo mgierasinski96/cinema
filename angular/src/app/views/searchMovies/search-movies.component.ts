@@ -7,13 +7,13 @@ import {FormControl, FormGroup} from '@angular/forms';
 export interface PeriodicElement {
   title: string;
   year: number;
-  poster: HTMLImageElement;
+  poster: string;
 }
 
 @Component({
   selector: 'app-root',
-  templateUrl: './searchMovies.component.html',
-  styleUrls: ['./searchMovies.component.scss']
+  templateUrl: './search-movies.component.html',
+  styleUrls: ['./search-movies.component.scss']
 })
 export class SearchMoviesComponent implements OnInit {
   @ViewChild('myChild') private myChild: MyTableComponent;
@@ -23,11 +23,13 @@ export class SearchMoviesComponent implements OnInit {
   roomNumber;
   allRooms;
   dateTime;
+  ticketPrice;
   tableData: PeriodicElement[];
   newMovieForm = new FormGroup({
     movieTitle: new FormControl(''),
     roomNumber: new FormControl(''),
     dateTime: new FormControl(''),
+    ticketPrice: new FormControl(''),
   });
 
   columnHeader = {'Title': 'Tytuł', 'Year': 'Rok', 'Poster': 'Plakat'};
@@ -66,11 +68,15 @@ export class SearchMoviesComponent implements OnInit {
   onChange(data) {
     this.dateTime = data;
   }
+  onChangePrice(data) {
+    this.ticketPrice = data;
+  }
 
   addTo() {
     this.newMovieForm.controls['roomNumber'].setValue(this.roomNumber);
     this.newMovieForm.controls['movieTitle'].setValue(this.movieTitle);
     this.newMovieForm.controls['dateTime'].setValue(this.dateTime);
+    this.newMovieForm.controls['ticketPrice'].setValue(this.ticketPrice);
     this.roomService.addMovieToRoom(this.newMovieForm.value).subscribe();
     this.myMovieDetails.closeMe();
   }

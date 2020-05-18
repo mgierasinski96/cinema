@@ -8,4 +8,5 @@ public interface MovieInRoomService {
 
     MovieInRoom safe(MovieInRoom movieInRoom);
     List<MovieInRoom> findAll();
+    MovieInRoom findById(int id);
 }

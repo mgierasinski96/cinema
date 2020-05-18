@@ -14,4 +14,9 @@ public class SeatServiceImpl implements SeatService {
     public Seat safeSeat(Seat seat) {
         return seatRepository.save(seat);
     }
+
+    @Override
+    public Seat findSeatById(int id) {
+        return seatRepository.findById(id);
+    }
 }

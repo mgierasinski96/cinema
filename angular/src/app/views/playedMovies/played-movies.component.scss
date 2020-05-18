@@ -1,0 +1,76 @@
+@import '../../../globalScssVariables.scss';
+
+
+#detailsContainer
+{
+  position: absolute;
+  left:0%;
+  top:0%;
+  width: 90%;
+  height: 90%;
+  display: none;
+  z-index: 1000;
+}
+#reserveTicket
+{
+  box-shadow: -10px 0px 8px 0px $primary;
+  text-align: center;
+  position: absolute;
+  top:0%;
+  right: 5%;
+  width: 30%;
+  height: 100%;
+}
+.free,.reserved,.selected
+{
+  min-width: 6% !important;
+  min-height: 6% !important;
+  max-width: 6% !important;
+  max-height: 6% !important;
+  margin-right: 5px;
+  border:2px solid black;
+  position: relative;
+  display: inline-block;
+  padding: 5px;
+  margin-top: 10px;
+  text-align: center;
+}
+.free:hover,.selected:hover
+{
+  cursor: pointer;
+  border: 2px solid $primary;
+}
+.free
+{
+  background: green;
+}
+.reserved
+{
+  background: red;
+}
+.selected
+{
+  background: orange;
+}
+#screen
+{
+  background: black;
+  color: white;
+  width: 350px;
+  height: 100px;
+  display: table-cell;
+ vertical-align: middle;
+
+}
+#cinemaRoom
+{
+  top:15%;
+  width: 360px;
+  position: absolute;
+}
+.myButton
+{
+  position: absolute;
+  bottom: 2%;
+  right: 5%;
+}

@@ -57,5 +57,11 @@ public class MovieController {
         return movieInRoomService.findAll();
     }
 
+    @GetMapping(value = "/movieInRoom/{movieId}")
+    public MovieInRoom getMovieinRoomByID(@PathVariable("movieId") int movieId)
+    {
+        return movieInRoomService.findById(movieId);
+    }
+
 
 }

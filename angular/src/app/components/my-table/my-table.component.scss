@@ -4,6 +4,7 @@
 
   background:$white;
 
+
 }
 
 .imageInTableCell
@@ -13,6 +14,7 @@
 }
 #filtrInput
 {
+  opacity: 0.8 !important;
   background: $darken;
   color: $primary;
   z-index: 200;
@@ -24,10 +26,11 @@
   border: 2px solid black;
 }
 #rankingTableHolder {
+  opacity: 0.95;
   position: absolute;
   left: 5%;
   top:37%;
-  width: 60%;
+  width: 80%;
   height: 60%;
   overflow-y: scroll;
 
@@ -36,6 +39,7 @@
  #rankingTable {
   background: $darken;
   box-shadow: none;
+   width: 100%;
 }
 
 #rankingTableBackground {

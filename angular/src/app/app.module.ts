@@ -15,11 +15,14 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MovieService} from './services/movie.service';
-import {SearchMoviesComponent} from './views/searchMovies/searchMovies.component';
+import {SearchMoviesComponent} from './views/searchMovies/search-movies.component';
 import {MyTableComponent} from './components/my-table/my-table.component';
 import {MovieDetailsComponent} from './components/movie-details/movie-details.component';
 import {RoomService} from './services/room.service';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {PlayedMoviesComponent} from './views/playedMovies/played-movies.component';
+import {SeatService} from './services/seat.service';
+import { ReserveTicketComponent } from './views/reserve-ticket/reserve-ticket.component';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     AppComponent,
     SearchMoviesComponent,
     MyTableComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    PlayedMoviesComponent,
+    ReserveTicketComponent
   ],
   entryComponents: [],
   imports: [
@@ -49,7 +54,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     OwlDateTimeModule,
     OwlNativeDateTimeModule
   ],
-  providers: [MovieService, RoomService],
+  providers: [MovieService, RoomService, SeatService],
   bootstrap: [AppComponent] // deklaracja glownego widoku
 })
 export class AppModule {

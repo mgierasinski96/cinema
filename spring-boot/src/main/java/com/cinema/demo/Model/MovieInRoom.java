@@ -14,6 +14,8 @@ public class MovieInRoom {
 
     private Date showStartsAt;
 
+    private double ticketPrice;
+
     @ManyToOne
     private Room room;
 
@@ -47,5 +49,13 @@ public class MovieInRoom {
 
     public void setShowStartsAt(Date showStartsAt) {
         this.showStartsAt = showStartsAt;
+    }
+
+    public double getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public void setTicketPrice(double ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
 }

@@ -2,14 +2,32 @@ $white: #fff;
 $black: #000000;
 $darken: #00043c;
 $primary: #fdbe34;
+$navyblue: #1F618D ;
+
+#container{
+
+  position: absolute;
+  width: calc(100% - (17.5% + 2px));
+  left: calc(17.5% + 2px);
+  padding: 0;
+  margin: 0;
+  top:5%;
+  height: 95%;
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/338/635/808/background-popcorn-film-wallpaper-preview.jpg");
+  background-size: cover;
+}
 
 .myButton {
   padding: 20px;
   width: 180px;
   height: 60px;
   border-radius: 15px;
-  background: #fdbe34;
+  background: $navyblue;
   color: white;
+}
+.myButton.disabled:hover
+{
+
 }
 .myButton:hover {
   background: $darken;

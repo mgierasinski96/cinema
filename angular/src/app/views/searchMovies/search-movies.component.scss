@@ -1,18 +1,11 @@
-@import '../../../globalScssVariables';
+@import '../../../globalScssVariables.scss';
 
-
-#container{
-
+#search
+{
   position: absolute;
-  width: calc(100% - (17.5% + 2px));
-  left: calc(17.5% + 2px);
-  padding: 0;
-  margin: 0;
-  top:calc(15% + 8px);
-  height: calc(100% - (15% + 8px));;
-  background: black;
+  top:15%;
+  left:1%;
 }
-
 #myMovie
 {
   display: none;
@@ -21,9 +14,9 @@
 {
   position: absolute;
   left:0%;
-  top:0%;
+  top:10%;
   width: 90%;
-  height: 90%;
+  height: 84%;
   display: none;
   z-index: 1000;
 }

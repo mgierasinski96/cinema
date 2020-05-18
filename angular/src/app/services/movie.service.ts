@@ -23,5 +23,8 @@ export class MovieService {
   getPlayedMovies(): Observable<any> {
     return this.httpClient.get<any>(this.API_URL_GET_MOVIE + 'playedMovies');
   }
+  getMovieInRoomById(id: any): Observable<any> {
+    return this.httpClient.get<any>(this.API_URL_GET_MOVIE + 'movieInRoom/' + id);
+  }
 
 }

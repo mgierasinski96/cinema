@@ -20,6 +20,11 @@ public class MovieInRoomServiceImpl implements MovieInRoomService {
 
     @Override
     public List<MovieInRoom> findAll() {
-        return movieInRoomRepository.findAll();
+        return movieInRoomRepository.findAllByOrderByShowStartsAtAsc();
+    }
+
+    @Override
+    public MovieInRoom findById(int id) {
+        return movieInRoomRepository.findById(id);
     }
 }

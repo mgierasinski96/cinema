@@ -27,10 +27,9 @@
     <div id="sideMenu">
       <ul>
         <li><a [routerLink]="['/movies']"><span>Filmy</span></a></li>
-        <li><a [routerLink]="['/movieDetails']"><span>Details</span></a></li>
-        <li><a [routerLink]="['/movies']"><span>Filmysa</span></a></li>
+        <li><a [routerLink]="['/playedMovies']"><span>Co gramy</span></a></li>
       </ul>
     </div>
 
-  <router-outlet></router-outlet>
+  <router-outlet id="container"></router-outlet>
 </div>

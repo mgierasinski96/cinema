@@ -6,6 +6,7 @@ public class NewMovieDTO {
     private Date dateTime;
     private String movieTitle;
     private int roomNumber;
+    private double ticketPrice;
 
     public Date getDateTime() {
         return dateTime;
@@ -29,6 +30,14 @@ public class NewMovieDTO {
 
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
+    }
+
+    public double getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public void setTicketPrice(double ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
 
     @Override

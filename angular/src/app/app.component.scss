@@ -114,6 +114,8 @@ $darkred: $primary;
 
 }
 
+
+
 #sideMenu ul li:nth-child(n) a:hover
 {
   color: $black;
@@ -131,6 +133,11 @@ $darkred: $primary;
   margin-top: 200px;
 
 
+}
+
+#selected
+{
+  background: blue !important;
 }
 .registerText{
   position: absolute;

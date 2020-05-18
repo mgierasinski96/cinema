@@ -34,7 +34,7 @@ public class RoomController {
     }
 
     @GetMapping(value = "/{roomNumber}")
-    public Room findByRoomNumver(@PathVariable("roomNumber") int roomNumber)
+    public Room findByRoomNumber(@PathVariable("roomNumber") int roomNumber)
     {
         return roomService.findByRoomNumber(roomNumber);
     }
@@ -47,6 +47,7 @@ public class RoomController {
         movie.setRoom(room);
         movie.setShowStartsAt(newMovieDTO.getDateTime());
         movie.setTitle(newMovieDTO.getMovieTitle());
+        movie.setTicketPrice(newMovieDTO.getTicketPrice());
         movieInRoomService.safe(movie);
 
     }
