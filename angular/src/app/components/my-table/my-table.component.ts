@@ -17,24 +17,36 @@ export class MyTableComponent implements OnInit {
 
   constructor() {
   }
+
   ngOnInit() {
-      this.dataSource = new MatTableDataSource(this.tableData);
-      this.dataSource.sort = this.sort;
+    this.dataSource = new MatTableDataSource(this.tableData);
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
   init(data) {
     this.tableData = data;
     this.ngOnInit();
   }
 
   isDate(val) {
-    if (this.parseDate === true && /^[0-9]{4}-/.test(val)) {
+    if (this.parseDate === true && typeof val === 'object') {
       return true;
     } else {
       return false;
     }
+  }
+
+  checkIfIncludesHttps(element) {
+    if (typeof element === 'string') {
+      if (element.includes('https')) {
+        console.log(typeof element);
+        return true;
+      }
+    }
+    return false;
   }
 }

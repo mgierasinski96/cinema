@@ -3,6 +3,10 @@
     <div class="header">
       <div id="headerContent">
         <img id="logo" src="../assets/images/logo.png">
+        <app-login *ngIf="userLogged === false" class="login"></app-login>
+        <div class="login" *ngIf="userLogged"><h2>Zalogowany jako: {{username}}</h2>
+        <button class="myButtonSmaller" (click)="logout()">Wyloguj</button>
+        </div>
       </div>
 
     </div>
@@ -24,10 +28,10 @@
   <!--</ng-template>-->
 
   <!--<ng-template [ngIf]="token !== null">-->
-    <div id="sideMenu">
+    <div id="sideMenu"[ngClass]="{'userIsLogged': userLogged===true, 'notLogged': userLogged===false}">
       <ul>
-        <li><a [routerLink]="['/movies']"><span>Filmy</span></a></li>
-        <li><a [routerLink]="['/playedMovies']"><span>Co gramy</span></a></li>
+        <li *ngIf="userLogged"><a [routerLink]="['/movies']"><span>Filmy</span></a></li>
+        <li *ngIf="userLogged"><a [routerLink]="['/playedMovies']"><span>Co gramy</span></a></li>
       </ul>
     </div>
 

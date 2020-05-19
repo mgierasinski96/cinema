@@ -7,24 +7,24 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class MovieService {
 
-  private API_URL_GET_MOVIE = 'http://localhost:8080/movies/';
+  private API_URL_MOVIES = 'http://localhost:8080/movies/';
 
 
   constructor(private httpClient: HttpClient) {
   }
 
   getMovies(title: String): Observable<any> {
-    return this.httpClient.get<any>(this.API_URL_GET_MOVIE + title);
+    return this.httpClient.get<any>(this.API_URL_MOVIES + title);
 
   }
   getMovieDetails(title: String): Observable<any> {
-    return this.httpClient.get<any>(this.API_URL_GET_MOVIE + 'movieDetails/' + title);
+    return this.httpClient.get<any>(this.API_URL_MOVIES + 'movieDetails/' + title);
   }
   getPlayedMovies(): Observable<any> {
-    return this.httpClient.get<any>(this.API_URL_GET_MOVIE + 'playedMovies');
+    return this.httpClient.get<any>(this.API_URL_MOVIES + 'playedMovies');
   }
   getMovieInRoomById(id: any): Observable<any> {
-    return this.httpClient.get<any>(this.API_URL_GET_MOVIE + 'movieInRoom/' + id);
+    return this.httpClient.get<any>(this.API_URL_MOVIES + 'movieInRoom/' + id);
   }
 
 }

@@ -49,7 +49,8 @@ export class PlayedMoviesComponent implements OnInit, OnDestroy {
             const diffMins = Math.floor(((diffMs % 86400000) % 3600000) / 60000); // minutes
             const diffSec = Math.round((((diffMs % 86400000) % 3600000) % 60000) / 1000); // secocds
             this.tableData[i] = {id: this.tableData[i].id.toString(), title: this.tableData[i].title, showStartsAt:
-              this.tableData[i].showStartsAt , ticketPrice: this.tableData[i].ticketPrice.toString(), left: diffDays + 'd:' + diffHrs + 'h:' + diffMins + 'm:' + diffSec + 's'};
+                new Date(this.tableData[i].showStartsAt) , ticketPrice: this.tableData[i].ticketPrice.toString(), left:
+                diffDays + 'd:' + diffHrs + 'h:' + diffMins + 'm:' + diffSec + 's'};
             this.myChild.init(this.tableData);
           }, 1000);
         }

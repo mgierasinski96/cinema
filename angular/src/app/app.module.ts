@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -23,6 +23,12 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {PlayedMoviesComponent} from './views/playedMovies/played-movies.component';
 import {SeatService} from './services/seat.service';
 import { ReserveTicketComponent } from './views/reserve-ticket/reserve-ticket.component';
+import {LoginComponent} from './components/login/login.component';
+import {AuthService} from './services/auth.service';
+import {TokenStorage} from './core/token.storage';
+import {Interceptor} from './core/inteceptor';
+import {RegisterComponent} from './views/register/register.component';
+import {UserService} from './services/user.service';
 
 
 @NgModule({
@@ -32,7 +38,9 @@ import { ReserveTicketComponent } from './views/reserve-ticket/reserve-ticket.co
     MyTableComponent,
     MovieDetailsComponent,
     PlayedMoviesComponent,
-    ReserveTicketComponent
+    ReserveTicketComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   entryComponents: [],
   imports: [
@@ -54,7 +62,12 @@ import { ReserveTicketComponent } from './views/reserve-ticket/reserve-ticket.co
     OwlDateTimeModule,
     OwlNativeDateTimeModule
   ],
-  providers: [MovieService, RoomService, SeatService],
+  providers: [MovieService, UserService, RoomService, SeatService, AuthService, TokenStorage, TokenStorage,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent] // deklaracja glownego widoku
 })
 export class AppModule {

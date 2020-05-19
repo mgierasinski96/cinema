@@ -3,12 +3,20 @@ $black: #000000;
 $darken: #00043c;
 $primary: #fdbe34;
 $navyblue: #1F618D ;
+$logged: false;
 
 #container{
 
   position: absolute;
   width: calc(100% - (17.5% + 2px));
-  left: calc(17.5% + 2px);
+  @if $logged {
+    left: calc(30.5% + 2px);
+    width: calc(100% - (17.5% + 2px));
+  } @else {
+    left: 0;
+    width: 100%;
+  }
+
   padding: 0;
   margin: 0;
   top:5%;
@@ -25,11 +33,21 @@ $navyblue: #1F618D ;
   background: $navyblue;
   color: white;
 }
+.myButtonSmaller
+{
+  padding: 4px;
+  width: 100px;
+  font-size: 1rem;
+  height: 30px;
+  border-radius: 7px;
+  background: $navyblue;
+  color: white;
+}
 .myButton.disabled:hover
 {
 
 }
-.myButton:hover {
+.myButton:hover,.myButtonSmaller:hover {
   background: $darken;
   color: white;
   font-weight: bold;

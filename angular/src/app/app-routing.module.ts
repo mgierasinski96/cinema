@@ -3,6 +3,7 @@ import {Routes, RouterModule, CanActivate} from '@angular/router';
 import {SearchMoviesComponent} from './views/searchMovies/search-movies.component';
 import {PlayedMoviesComponent} from './views/playedMovies/played-movies.component';
 import {ReserveTicketComponent} from './views/reserve-ticket/reserve-ticket.component';
+import {LoginComponent} from './components/login/login.component';
 
 
 // Delkaracja na jakim url ma się wyrenderować jaki komponent. Pojawi się w miejscu deklaracji <router-outlet>
