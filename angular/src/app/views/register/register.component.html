@@ -1,28 +1,65 @@
 <div id="container">
-<div class="registerForm">
-  <table>
-    <tr>
-      <td><label for="username">Username</label></td>
-      <td>
-        <input id="username" [(ngModel)]="register.username" placeholder="username" type="text"></td>
-    </tr>
+  <div id="registerForm">
+<h2>Rejestracja</h2>
+      <form class="example-form" (ngSubmit)="onRegister()" [formGroup]="registerForm">
+        <table>
+        <tr>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Imię</mat-label>
+              <input type="text" matInput formControlName="firstName" required/>
+              <mat-error *ngIf="hasError('firstName')">Co najmniej 2 znaki</mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Nazwisko</mat-label>
+              <input type="text" matInput formControlName="lastName" required/>
+              <mat-error *ngIf="hasError('lastName')">Co najmniej 2 znaki</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="email" required/>
+              <mat-error *ngIf="hasError('email')" >Brak lub zły format</mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Numer kontaktowy</mat-label>
+              <input type="text" matInput formControlName="phoneNumber" required/>
+              <mat-error *ngIf="hasError('phoneNumber')">Wymagane 9 cyfr</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Login</mat-label>
+              <input type="text" matInput formControlName="username" required/>
+              <mat-error *ngIf="hasError('username')">Treść jest wymagana!</mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Hasło</mat-label>
+              <input type="password" matInput formControlName="password" required/>
+              <mat-error *ngIf="hasError('password')">Treść jest wymagana!</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button class="myButton" [disabled]="!registerForm.valid">
+              Wyślij
+            </button>
+          </td>
+        </tr>
+        </table>
+      </form>
 
-    <tr>
-      <td>
-        <label for="email">Email</label>
-      </td>
-      <td>
-        <input id="email" [(ngModel)]="register.email" placeholder="email" type="email"></td>
-    </tr>
-    <tr>
-      <td><label for="password">Password</label></td>
-      <td><input id="password" [(ngModel)]="register.password" placeholder="password" type="password"></td>
-    </tr>
-
-    <button (click)="onRegister()" class="myButton">Zarejestruj</button>
-
-  </table>
-
-
-</div>
+  </div>
 </div>

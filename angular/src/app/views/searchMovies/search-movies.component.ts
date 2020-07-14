@@ -58,6 +58,7 @@ export class SearchMoviesComponent implements OnInit {
       document.getElementById('detailsContainer').style.display = 'inline-block';
       this.roomService.getAllRooms().subscribe(response => {
         this.allRooms = response;
+        console.log(this.allRooms)
       });
     }
   }

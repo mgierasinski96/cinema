@@ -1,6 +1,8 @@
 package com.cinema.demo.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Seat {
@@ -11,11 +13,12 @@ public class Seat {
 
     private int seatNumber;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private User user;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "seat")
+    private List<Reservation> reservations = new ArrayList<>();
 
     @ManyToOne(fetch=FetchType.EAGER)
     private Room room;
+
 
     public int getId() {
         return id;
@@ -33,12 +36,12 @@ public class Seat {
         this.seatNumber = seatNumber;
     }
 
-    public User getUser() {
-        return user;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
     public Room getRoom() {
@@ -47,5 +50,15 @@ public class Seat {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "id=" + id +
+                ", seatNumber=" + seatNumber +
+                ", reservations=" + reservations +
+                ", room=" + room +
+                '}';
     }
 }

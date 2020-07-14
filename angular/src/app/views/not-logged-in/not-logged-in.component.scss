@@ -1,0 +1,15 @@
+@import '../../../globalScssVariables.scss';
+
+#container
+{
+  background: $darken;
+  width: 60%;
+  left:20%;
+  top:20%;
+  text-align: center;
+  height: 50%;
+  color: $primary;
+  font-size: 40px;
+  line-height: 200%;
+  border:2px solid $primary;
+}

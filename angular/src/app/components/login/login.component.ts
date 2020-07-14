@@ -23,10 +23,13 @@ export class LoginComponent {
               this.token.saveUsername(data.username);
                 this.token.saveToken(data.token.token);
                 this.main.ngOnInit();
-                // this.router.navigate(['user']);
+                this.router.navigate(['']);
             }
         );
     }
+  register() {
+    this.router.navigate(['/register']);
+  }
 
 
 }

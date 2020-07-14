@@ -1,0 +1,14 @@
+@import '../../../globalScssVariables.scss';
+
+#aboutUs
+{
+  position: absolute;
+  left:50%;
+  top:30%;
+  width: 500px;
+  height: 300px;
+  margin-left: -250px;
+  z-index: 1000;
+  background: white;
+  padding: 15px;
+}

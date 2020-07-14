@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cinema.demo.Model.User;
 import com.cinema.demo.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -39,9 +40,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
                 if (jwtToken.validateToken(authToken, userDetails)) {
+                    User user=userDetailsService.findOne(username);
+                    //zmiana
                     UsernamePasswordAuthenticationToken authentication =
                             new UsernamePasswordAuthenticationToken(userDetails, null,
-                                    Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN")));
+                                    Collections.singletonList(new SimpleGrantedAuthority(user.getUserRole().getName())));
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(req));
                     SecurityContextHolder.getContext().setAuthentication(authentication);
 

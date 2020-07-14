@@ -1,0 +1,7 @@
+<div id="container">
+
+  <app-my-table (click)="performAction($event.target)" [tableData]="tableData" [parseDate]="false" #myChild
+                [columnHeader]="columnHeader"></app-my-table>
+  <app-user-details-component [username]="username" id="detailsContainer" #myUserDetails>
+  </app-user-details-component>
+</div>

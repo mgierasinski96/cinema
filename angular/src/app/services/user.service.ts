@@ -12,9 +12,16 @@ export class UserService {
 
 
   getUserByUsername(username: String): Observable<any> {
-    return this.http.get<any>(this.API_URL_USER + 'getUserByUsername/' + username);
+    return this.http.get<any>(this.API_URL_USER + username);
   }
   registerUser(userData): Observable<any> {
-    return this.http.post(this.API_URL_USER, userData);
+    return this.http.post(this.API_URL_USER + 'register', userData);
+  }
+  getAllUsers(): Observable<any> {
+    return this.http.get(this.API_URL_USER);
+  }
+  getReservedSeatsForUsername(username: any): Observable<any> {
+    return this.http.get<any>(this.API_URL_USER + 'getReservedSeats/' + username);
+
   }
 }

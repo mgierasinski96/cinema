@@ -27,6 +27,7 @@ export class PlayedMoviesComponent implements OnInit, OnDestroy {
   movieTitle;
   moveIdentificator;
   seats;
+  reservations;
   selectedSeats = [];
 
   columnHeader = {'id': 'Identyfikator', 'title': 'Tytuł', 'ticketPrice': 'Cena[zł]', 'showStartsAt': 'Seans o', 'left': 'Pozostało'};
@@ -75,6 +76,20 @@ export class PlayedMoviesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       clearInterval(this.interval);
+  }
+
+  checkIfReserved(seatNumber) {
+    for (let i = 0; i < this.seats.length; i++) {
+      this.reservations = this.seats[i].reservations;
+      for (let j = 0; j < this.reservations.length; j++) {
+         if (this.reservations[j].movieInRoom.id == this.moveIdentificator && this.reservations[j].seatNumber == seatNumber) {
+           console.log('true');
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 
   reserveSeat(seat, target) {

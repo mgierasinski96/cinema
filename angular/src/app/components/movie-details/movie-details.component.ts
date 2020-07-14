@@ -12,9 +12,11 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private movieService: MovieService) {
   }
   ngOnInit() {
-    this.movieService.getMovieDetails(this.movieTitle).subscribe( response => {
-      this.movie = response;
-    });
+    if (this.movieTitle !== undefined) {
+      this.movieService.getMovieDetails(this.movieTitle).subscribe(response => {
+        this.movie = response;
+      });
+    }
   }
   init(data) {
     this.movieTitle = data;

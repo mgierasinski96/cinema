@@ -29,6 +29,11 @@ import {TokenStorage} from './core/token.storage';
 import {Interceptor} from './core/inteceptor';
 import {RegisterComponent} from './views/register/register.component';
 import {UserService} from './services/user.service';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ListAppUsersComponent } from './views/list-app-users/list-app-users.component';
+import {UserDetailsComponent} from './components/user-details/user-details.component';
+import { NotLoggedInComponent } from './views/not-logged-in/not-logged-in.component';
+import {AboutComponent} from './views/about/about.component';
 
 
 @NgModule({
@@ -40,7 +45,11 @@ import {UserService} from './services/user.service';
     PlayedMoviesComponent,
     ReserveTicketComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ListAppUsersComponent,
+    UserDetailsComponent,
+    NotLoggedInComponent,
+    AboutComponent
   ],
   entryComponents: [],
   imports: [
@@ -48,7 +57,7 @@ import {UserService} from './services/user.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+   BrowserAnimationsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatTooltipModule,
@@ -57,6 +66,7 @@ import {UserService} from './services/user.service';
     MatFormFieldModule,
     MatCheckboxModule,
     MatSortModule,
+    MatPaginatorModule,
     MatDialogModule,
     MatInputModule,
     OwlDateTimeModule,

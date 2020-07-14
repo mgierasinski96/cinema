@@ -21,4 +21,11 @@ export class SeatService {
     return this.httpClient.get<any>(this.API_URL_SEAT + id);
 
   }
+
+  makeReservation(form: any): Observable<any> {
+    return this.httpClient.post<any>(this.API_URL_SEAT + 'reserveSeat', form);
+
+  }
+
+
 }

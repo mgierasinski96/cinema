@@ -6,7 +6,7 @@
     <div sample id="reserveTicket"><h2>Zarezerwuj bilet</h2>
       <div id="cinemaRoom">
 
-      <span class="seat" (click)="reserveSeat(seat,$event.target)" [ngClass]="seat.user == null ? 'free': 'reserved'" *ngFor="let seat of seats">
+      <span class="seat" (click)="reserveSeat(seat,$event.target)" [ngClass]="checkIfReserved(seat.seatNumber) == false ? 'free': 'reserved'" *ngFor="let seat of seats">
         {{ seat.seatNumber }}
       </span>
         <div style="margin-top: 15px; padding: 15px;">

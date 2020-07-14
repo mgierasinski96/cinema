@@ -10,7 +10,7 @@
   </div>
   <!--<img *ngFor="let movie of movies" src="{{movie.Poster}}">-->
 
-  <app-my-table (click)="performAction($event.target)" [tableData]="tableData" [parseDate]="false" #myChild
+  <app-my-table id="myMovie"(click)="performAction($event.target)" [tableData]="tableData" [parseDate]="false" #myChild
                 [columnHeader]="columnHeader"></app-my-table>
   <app-movie-details-component [movieTitle]="movieTitle" id="detailsContainer" #myMoveDetails>
     <div sample id="addMovieToRoom"><h2>Dodaj film do sali</h2>

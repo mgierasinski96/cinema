@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class RoomService {
 
-  private API_URL_ROOM = 'http://localhost:8080//room';
+  private API_URL_ROOM = 'http://localhost:8080/room';
 
 
   constructor(private httpClient: HttpClient) {

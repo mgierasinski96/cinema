@@ -1,8 +1,8 @@
 <div id="container">
   <div id="reserveTicketDetails">
     <div id="content">
-    <h2>Kupujesz bilet na film: {{movie.title}}</h2>
-    <h2>Data: {{movie.showStartsAt | date:'MMM d, y, H:mm':'pl'}}</h2>
+    <h2>Kupujesz bilet na film: {{movie?.title}}</h2>
+    <h2>Data: {{movie?.showStartsAt | date:'MMM d, y, H:mm':'pl'}}</h2>
     <table>
       <tr>
         <th>Miejsce</th>
@@ -10,7 +10,7 @@
       </tr>
       <tr *ngFor="let seat of seats">
         <td>{{seat.seatNumber}}</td>
-        <td>{{movie.ticketPrice}}[zł]</td>
+        <td>{{movie?.ticketPrice}}[zł]</td>
       </tr>
     </table>
       <button (click)="confirmReservation()"  class="myButton"> Kup bilety

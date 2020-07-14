@@ -1,0 +1,16 @@
+<div id="detailsContainer">
+  <img id='close' src="https://img.icons8.com/cute-clipart/44/000000/close-window.png" (click)="closeMe()"/>
+  <ng-content select="[sample]"></ng-content>
+<table id="mainUserInfo" border="1">
+<tr>
+  <td>Nazwa użytkownika</td> <td>{{user?.username}}</td>
+</tr>
+  <tr>
+  <td>Imię</td> <td>{{user?.firstName}}</td></tr>
+  <tr><td>Nazwisko</td> <td>{{user?.lastName}}</td></tr>
+  <tr><td>Email</td> <td>{{user?.email}}</td></tr>
+  <tr><td>Numer kontaktowy</td> <td>{{user?.phoneNumber}}</td></tr>
+</table>
+  <app-my-table id="reservationDetails" [tableData]="tableData" [parseDate]="true" #myChild
+                [columnHeader]="columnHeader"></app-my-table>
+</div>

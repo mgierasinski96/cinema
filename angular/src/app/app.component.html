@@ -32,6 +32,8 @@
       <ul>
         <li *ngIf="userLogged"><a [routerLink]="['/movies']"><span>Filmy</span></a></li>
         <li *ngIf="userLogged"><a [routerLink]="['/playedMovies']"><span>Co gramy</span></a></li>
+        <li *ngIf="userLogged"><a [routerLink]="['/appUsers']"><span>Użytkownicy</span></a></li>
+        <li *ngIf="userLogged"><a [routerLink]="['/about']"><span>O nas</span></a></li>
       </ul>
     </div>
 

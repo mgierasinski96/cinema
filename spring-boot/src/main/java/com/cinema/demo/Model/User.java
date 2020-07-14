@@ -1,5 +1,7 @@
 package com.cinema.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,20 @@ public class User {
 
     private String password;
 
+    @ManyToOne
+    private Role userRole;
+
+    public Role getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(Role userRole) {
+        this.userRole = userRole;
+    }
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-    private List<Seat> reservedSeats = new ArrayList<>();
+    @JsonIgnore
+    private List<Reservation> reservations = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -58,14 +72,13 @@ public class User {
         this.username = username;
     }
 
-    public List<Seat> getReservedSeats() {
-        return reservedSeats;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setReservedSeats(List<Seat> reservedSeats) {
-        this.reservedSeats = reservedSeats;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
-
 
     public String getEmail() {
         return email;
@@ -91,5 +104,17 @@ public class User {
         this.password = password;
     }
 
-    
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + password + '\'' +
+                ", reservations=" + reservations +
+                '}';
+    }
 }

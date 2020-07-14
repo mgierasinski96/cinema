@@ -6,7 +6,6 @@
 
 
 }
-
 .imageInTableCell
 {
   width: 140px;
@@ -37,6 +36,7 @@
 }
 
  #rankingTable {
+   border: 2px solid $primary;
   background: $darken;
   box-shadow: none;
    width: 100%;

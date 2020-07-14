@@ -43,7 +43,6 @@ export class MyTableComponent implements OnInit {
   checkIfIncludesHttps(element) {
     if (typeof element === 'string') {
       if (element.includes('https')) {
-        console.log(typeof element);
         return true;
       }
     }

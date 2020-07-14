@@ -1,7 +1,9 @@
 package com.cinema.demo.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class MovieInRoom {
@@ -15,6 +17,9 @@ public class MovieInRoom {
     private Date showStartsAt;
 
     private double ticketPrice;
+
+    @OneToMany(mappedBy = "movieInRoom")
+    List<Reservation> reservations= new ArrayList<>();
 
     @ManyToOne
     private Room room;
@@ -57,5 +62,17 @@ public class MovieInRoom {
 
     public void setTicketPrice(double ticketPrice) {
         this.ticketPrice = ticketPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "MovieInRoom{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", showStartsAt=" + showStartsAt +
+                ", ticketPrice=" + ticketPrice +
+                ", reservations=" + reservations +
+                ", room=" + room +
+                '}';
     }
 }
