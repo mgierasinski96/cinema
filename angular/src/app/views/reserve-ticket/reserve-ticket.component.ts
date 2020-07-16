@@ -4,6 +4,7 @@ import {SeatService} from '../../services/seat.service';
 import {MovieService} from '../../services/movie.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {TokenStorage} from '../../core/token.storage';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-reserve-ticket',
@@ -19,7 +20,8 @@ export class ReserveTicketComponent implements OnInit {
     username: new FormControl('')
   });
 
-  constructor(private router: Router, private token: TokenStorage, private route: ActivatedRoute, private movieService: MovieService, private seatService: SeatService) { }
+  constructor(private router: Router, private token: TokenStorage, private route: ActivatedRoute,
+              private movieService: MovieService, private toastr: ToastrService, private seatService: SeatService) { }
 
   ngOnInit(): void {
 
@@ -37,6 +39,7 @@ export class ReserveTicketComponent implements OnInit {
     this.newReservation.controls['movieInRoom'].setValue(this.movie);
     this.newReservation.controls['username'].setValue(this.token.getUsername());
     this.seatService.makeReservation(this.newReservation.value).subscribe();
+    this.toastr.success('Gratulacje zarezerowałes bilety');
     this.router.navigate(['/playedMovies']);
   }
 

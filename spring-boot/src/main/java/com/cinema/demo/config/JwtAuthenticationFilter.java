@@ -32,10 +32,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
             throws IOException, ServletException {
         String authToken = req.getHeader(JwtToken.HEADER_STRING);
-
         if (authToken != null) {
             String username = jwtToken.getUsernameFromToken(authToken);
-
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 

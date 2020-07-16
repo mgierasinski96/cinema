@@ -4,4 +4,5 @@ import com.cinema.demo.Model.Reservation;
 
 public interface ReservationService {
     Reservation safeReservation(Reservation reservation);
+    void removeReservation(Reservation res);
 }

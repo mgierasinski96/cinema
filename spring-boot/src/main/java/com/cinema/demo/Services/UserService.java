@@ -13,4 +13,5 @@ public interface UserService {
     User findOne(String username);
     UserDetails loadUserByUsername(String username);
     List<SimpleGrantedAuthority> getAuthority();
+    void removeUser(User user);
 }

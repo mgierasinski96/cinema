@@ -10,7 +10,10 @@
   <tr><td>Nazwisko</td> <td>{{user?.lastName}}</td></tr>
   <tr><td>Email</td> <td>{{user?.email}}</td></tr>
   <tr><td>Numer kontaktowy</td> <td>{{user?.phoneNumber}}</td></tr>
+
 </table>
+  <button class="myButtonSmaller" style="position: absolute; left: 5px; bottom: 10px;" (click)="deleteHim()">Usun go</button>
   <app-my-table id="reservationDetails" [tableData]="tableData" [parseDate]="true" #myChild
                 [columnHeader]="columnHeader"></app-my-table>
 </div>
+

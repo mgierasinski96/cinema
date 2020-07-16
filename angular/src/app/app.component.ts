@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class AppComponent implements OnInit {
 userLogged;
   username;
+  role;
 
   constructor( private router: Router, private token: TokenStorage) {
   }
@@ -20,6 +21,7 @@ userLogged;
       this.userLogged = false;
     } else {
       this.username = this.token.getUsername();
+      this.role = this.token.getRole();
       this.userLogged = true;
     }
   }
@@ -27,6 +29,7 @@ userLogged;
   logout() {
     this.token.removeToken();
     this.token.removeUsername();
+    this.token.removeRole();
     this.router.navigate(['']);
     this.ngOnInit();
   }

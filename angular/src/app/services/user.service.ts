@@ -24,4 +24,9 @@ export class UserService {
     return this.http.get<any>(this.API_URL_USER + 'getReservedSeats/' + username);
 
   }
+
+  removeUser(username: any): Observable<any> {
+    return this.http.get<any>(this.API_URL_USER + 'remove/' + username);
+
+  }
 }

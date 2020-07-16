@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';;
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router,private toastr: ToastrService) {
   }
 
   registerForm = new FormGroup({
@@ -31,6 +32,8 @@ export class RegisterComponent implements OnInit {
   onRegister() {
    this.userService.registerUser(this.registerForm.value).subscribe(response => {
         this.router.navigateByUrl('');
+
+     this.toastr.success('Gratulacje, teraz możesz sie zalogować');
        });
   }
 

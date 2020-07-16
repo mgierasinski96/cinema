@@ -29,7 +29,7 @@ public class AuthenticationController {
         LoginUser userLogged = new LoginUser();
         userLogged.setToken(new Token(token));
         userLogged.setUsername(user.getUsername());
-        System.out.println(token);
+        userLogged.setRole(user.getUserRole().getName());
         return userLogged;
     }
 

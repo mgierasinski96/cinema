@@ -10,29 +10,12 @@
       </div>
 
     </div>
-  <!--</ng-template>-->
 
-
-  <!--<div class="content">-->
-    <!--<ng-template [ngIf]="token === null">-->
-      <!--<div id="userMenu">-->
-        <!--&lt;!&ndash;// [ngIf]="token === null">&ndash;&gt;-->
-        <!--<input [(ngModel)]="login.username" placeholder="Username" type="text"><br>-->
-        <!--<input [(ngModel)]="login.password" placeholder="Password" type="password"><br>-->
-        <!--<button (click)="onLogin()">Login</button>-->
-      <!--</div>-->
-    <!--</ng-template>-->
-  <!--</div>-->
-  <!--<ng-template [ngIf]="token === null">-->
-    <!--<p [routerLink]="['signup']" class="registerText">Don't have account yet? Sign UP HERE</p>-->
-  <!--</ng-template>-->
-
-  <!--<ng-template [ngIf]="token !== null">-->
     <div id="sideMenu"[ngClass]="{'userIsLogged': userLogged===true, 'notLogged': userLogged===false}">
       <ul>
-        <li *ngIf="userLogged"><a [routerLink]="['/movies']"><span>Filmy</span></a></li>
+        <li *ngIf="userLogged && role !== 'ROLE_USER'"><a [routerLink]="['/movies']"><span>Filmy</span></a></li>
         <li *ngIf="userLogged"><a [routerLink]="['/playedMovies']"><span>Co gramy</span></a></li>
-        <li *ngIf="userLogged"><a [routerLink]="['/appUsers']"><span>Użytkownicy</span></a></li>
+        <li *ngIf="userLogged && role !== 'ROLE_USER'"><a [routerLink]="['/appUsers']"><span>Użytkownicy</span></a></li>
         <li *ngIf="userLogged"><a [routerLink]="['/about']"><span>O nas</span></a></li>
       </ul>
     </div>

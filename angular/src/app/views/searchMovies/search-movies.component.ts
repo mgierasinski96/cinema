@@ -4,6 +4,8 @@ import {RoomService} from '../../services/room.service';
 import {MyTableComponent} from '../../components/my-table/my-table.component';
 import {MovieDetailsComponent} from '../../components/movie-details/movie-details.component';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {TokenStorage} from '../../core/token.storage';
 export interface PeriodicElement {
   title: string;
   year: number;
@@ -33,10 +35,14 @@ export class SearchMoviesComponent implements OnInit {
   });
 
   columnHeader = {'Title': 'Tytuł', 'Year': 'Rok', 'Poster': 'Plakat'};
-  constructor(private movieService: MovieService, private roomService: RoomService) {
+  constructor(private token: TokenStorage, private router: Router, private movieService: MovieService, private roomService: RoomService) {
   }
 
   ngOnInit() {
+    if (this.token.getRole() === null || this.token.getRole() === 'ROLE_USER') {
+      this.router.navigate(['']);
+    }
+
   }
   onSearchChange(searchValue: string) {
     this.movieService.getMovies(searchValue).subscribe(response => {

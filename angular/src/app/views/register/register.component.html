@@ -8,14 +8,14 @@
             <mat-form-field appearance="outline">
               <mat-label>Imię</mat-label>
               <input type="text" matInput formControlName="firstName" required/>
-              <mat-error *ngIf="hasError('firstName')">Co najmniej 2 znaki</mat-error>
+              <mat-error *ngIf="hasError('firstName')">Min 2 znaki bez cyfr</mat-error>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Nazwisko</mat-label>
               <input type="text" matInput formControlName="lastName" required/>
-              <mat-error *ngIf="hasError('lastName')">Co najmniej 2 znaki</mat-error>
+              <mat-error *ngIf="hasError('lastName')">Min 2 znaki bez cyfr</mat-error>
             </mat-form-field>
           </td>
         </tr>

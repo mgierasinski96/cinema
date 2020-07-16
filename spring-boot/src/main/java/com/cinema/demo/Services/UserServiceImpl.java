@@ -41,4 +41,9 @@ public class UserServiceImpl implements UserService {
     public List<SimpleGrantedAuthority> getAuthority() {
         return Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
+
+   public void removeUser(User user)
+    {
+         userRepository.delete(user);
+    }
 }

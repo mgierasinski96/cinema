@@ -13,6 +13,7 @@ export class LoginComponent {
 
     username: string;
     password: string;
+  role: string;
 
     constructor(private main: AppComponent, private router: Router, private authService: AuthService, private token: TokenStorage) {
     }
@@ -20,6 +21,7 @@ export class LoginComponent {
     login(): void {
         this.authService.attemptAuth(this.username, this.password).subscribe(
             data => {
+              this.token.saveRole(data.role);
               this.token.saveUsername(data.username);
                 this.token.saveToken(data.token.token);
                 this.main.ngOnInit();

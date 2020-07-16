@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {MyTableComponent} from '../my-table/my-table.component';
+import {Router} from '@angular/router';
 
 
 export interface ReservationDetailsModel {
@@ -23,7 +24,7 @@ export class UserDetailsComponent implements OnInit {
   tableData: ReservationDetailsModel[] = [];
   @ViewChild('myChild') private myChild: MyTableComponent;
   columnHeader = {'reservationDate': 'Data rezerwacji', 'title': 'Tytuł', 'seatNumber': 'Miejsce', 'roomNumber': 'Sala', 'showStartsAt': ' Data seansu', 'ticketPrice': 'Cena biletu'};
-  constructor(private userService: UserService) {
+  constructor(private router: Router, private userService: UserService) {
   }
   ngOnInit() {
     if (this.username !== undefined) {
@@ -53,7 +54,15 @@ export class UserDetailsComponent implements OnInit {
     this.username = data;
     this.ngOnInit();
   }
+  deleteHim()
+  {
 
+    this.userService.removeUser(this.username).subscribe(response => {
+   this.closeMe();
+      this.router.navigate(['/appUsers']);
+
+    });
+  }
   closeMe() {
     document.getElementById('detailsContainer').style.display = 'none';
   }

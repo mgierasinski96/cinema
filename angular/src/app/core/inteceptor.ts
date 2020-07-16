@@ -15,13 +15,14 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { TokenStorage } from './token.storage';
 import {Observable} from 'rxjs/internal/Observable';
 import {of} from 'rxjs/internal/observable/of';
+import {ToastrService} from 'ngx-toastr';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
 @Injectable()
 export class Interceptor implements HttpInterceptor {
 
-    constructor(private token: TokenStorage, private router: Router) {
+    constructor(private toastr: ToastrService, private token: TokenStorage, private router: Router) {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -37,6 +38,9 @@ export class Interceptor implements HttpInterceptor {
                 catchError((err) => {
                     console.log(err);
                     console.log('req url :: ' + req.url);
+                  if (err.status === 500) {
+                    this.toastr.error('Niepoprawne dane logowania');
+                  }
                     if (err.status === 401) {
                         this.router.navigate(['notLoggedIn']);
                     }

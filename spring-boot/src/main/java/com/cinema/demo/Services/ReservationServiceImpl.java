@@ -13,4 +13,9 @@ public class ReservationServiceImpl implements ReservationService {
     public Reservation safeReservation(Reservation reservation) {
         return reservationRepository.save(reservation);
     }
+
+    @Override
+    public void removeReservation(Reservation res) {
+        reservationRepository.delete(res);
+    }
 }
